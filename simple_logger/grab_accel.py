@@ -300,8 +300,15 @@ def main(argv):
 #                    device.disable_notifications(audio_feature)
 #                    audio_feature.remove_listener(audio_feature_listener)
 
-                time.sleep( 1 )
-                print('\nExiting...\n')
+                print('\nDisconnecting from %s...' % (device.get_name()))
+                if not device.disconnect():
+                    print('Disconnection failed.\n')
+                    continue
+                device.remove_listener(node_listener)
+                # Resetting discovery.
+                manager.reset_discovery()
+                manager.remove_listener(manager_listener)
+                print('Exiting...\n')
                 sys.exit(0)
 
     except KeyboardInterrupt:
