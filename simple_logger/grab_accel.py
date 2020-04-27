@@ -185,7 +185,7 @@ def main(argv):
 
         while True:
             # Synchronous discovery of Bluetooth devices.
-            print('Scanning Bluetooth devices...\n')
+            print('#Scanning Bluetooth devices...\n')
             manager.discover(SCANNING_TIME_s)
 
             # Alternative 1: Asynchronous discovery of Bluetooth devices.
@@ -201,25 +201,27 @@ def main(argv):
 
             # Listing discovered devices.
             if not discovered_devices:
-                print('No Bluetooth devices found. Exiting...\n')
+                print('#No Bluetooth devices found. Exiting...\n')
                 sys.exit(0)
-            print('Available Bluetooth devices:')
+            print('#Available Bluetooth devices:')
             i = 1
             for device in discovered_devices:
-                print('%d) %s: [%s]' % (i, device.get_name(), device.get_tag()))
+                print('#%d) %s: [%s]' % (i, device.get_name(), device.get_tag()))
                 i += 1
 
             # Selecting a device.
-            while True:
-                choice = int(
-                    input("\nSelect a device to connect to (\'0\' to quit): "))
-                if choice >= 0 and choice <= len(discovered_devices):
-                    break
-            if choice == 0:
-                # Exiting.
-                manager.remove_listener(manager_listener)
-                print('Exiting...\n')
-                sys.exit(0)
+#            while True:
+#                choice = int(
+#                    input("\nSelect a device to connect to (\'0\' to quit): "))
+#                if choice >= 0 and choice <= len(discovered_devices):
+#                    break
+#            if choice == 0:
+#                # Exiting.
+#                manager.remove_listener(manager_listener)
+#                print('Exiting...\n')
+#                sys.exit(0)
+            #this is very fragile...
+            choice=1
             device = discovered_devices[choice - 1]
             node_listener = MyNodeListener()
             device.add_listener(node_listener)
