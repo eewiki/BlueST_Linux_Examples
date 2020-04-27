@@ -1,5 +1,12 @@
 #!/bin/bash
 
+toggle () {
+	/home/debian/tplink-smartplug/tplink_smartplug.py -t 192.168.3.223 -c off
+	sleep 2
+	/home/debian/tplink-smartplug/tplink_smartplug.py -t 192.168.3.223 -c on
+	sleep 3
+}
+
 if ! id | grep -q root; then
 	echo "must be run as root"
 	exit
@@ -14,6 +21,6 @@ do
 		exit
 	fi
 	cat /var/www/html/accel-${date_stamp}.log | grep "^#Device BAI_400 disconnected unexpectedly." && sleep 5
-	cat /var/www/html/accel-${date_stamp}.log | grep "^#No Bluetooth devices found. Exiting..." && exit
+	cat /var/www/html/accel-${date_stamp}.log | grep "^#No Bluetooth devices found. Exiting..." && toggle
 done
 
