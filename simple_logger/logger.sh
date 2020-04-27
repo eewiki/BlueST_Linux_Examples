@@ -12,7 +12,8 @@ do
 	if [ -f /tmp/stop ] ; then
 		exit
 	fi
-	cat /var/www/html/accel-${date_stamp}.log | grep "^#Device BAI_400 disconnected unexpectedly." && exit
+	cat /var/www/html/accel-${date_stamp}.log | grep "^#Device BAI_400 disconnected unexpectedly." && sleep 5
 	cat /var/www/html/accel-${date_stamp}.log | grep "^#No Bluetooth devices found. Exiting..." && exit
+	sleep 1
 done
 
