@@ -225,25 +225,25 @@ def main(argv):
             device.add_listener(node_listener)
 
             # Connecting to the device.
-            print('Connecting to %s...' % (device.get_name()))
+            print('#Connecting to %s...' % (device.get_name()))
             if not device.connect():
-                print('Connection failed.\n')
+                print('#Connection failed.\n')
                 continue
 
             while True:
                 # Getting features.
                 features = device.get_features()
-                print('\nFeatures:')
+                print('\n#Features:')
                 i = 1
                 for feature in features:
                     if isinstance(feature, FeatureAudioADPCM):
                         audio_feature = feature
-                        print('%d,%d) %s' % (i,i+1, "Audio & Sync"))
+                        print('#%d,%d) %s' % (i,i+1, "Audio & Sync"))
                         i+=1
                     elif isinstance(feature, FeatureAudioADPCMSync):
                         audio_sync_feature = feature
                     else:
-                        print('%d) %s' % (i, feature.get_name()))
+                        print('#%d) %s' % (i, feature.get_name()))
                         i+=1
 
 #                # Selecting a feature.
