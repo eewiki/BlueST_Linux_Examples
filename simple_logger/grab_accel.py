@@ -45,6 +45,7 @@ from __future__ import print_function
 import sys
 import os
 import time
+import datetime
 from abc import abstractmethod
 
 from blue_st_sdk.manager import Manager
@@ -269,6 +270,8 @@ def main(argv):
                 print('\n')
                 choice=8
                 feature = features[choice - 1]
+                x = datetime.datetime.now()
+                print(x)
 
                 # Enabling notifications.
                 feature_listener = MyFeatureListener()
@@ -303,6 +306,9 @@ def main(argv):
 #                    device.disable_notifications(audio_feature)
 #                    audio_feature.remove_listener(audio_feature_listener)
 
+
+                x = datetime.datetime.now()
+                print(x)
                 print('\n#Disconnecting from %s...' % (device.get_name()))
                 if not device.disconnect():
                     print('#Disconnection failed.\n')

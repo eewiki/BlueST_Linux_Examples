@@ -5,5 +5,5 @@ if ! id | grep -q root; then
 	exit
 fi
 
-python3 grab_accel.py | grep -v '#' >> /var/www/html/accel-$(date +%Y.%m.%d.%H.%M.%S).log
+python3 grab_accel.py >> /var/www/html/accel-$(date +%Y.%m.%d.%H.%M.%S).log
 
