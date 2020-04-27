@@ -102,7 +102,7 @@ class MyManagerListener(ManagerListener):
     # @param enabled True if a new discovery starts, False otherwise.
     #
     def on_discovery_change(self, manager, enabled):
-        print('Discovery %s.' % ('started' if enabled else 'stopped'))
+        print('#Discovery %s.' % ('started' if enabled else 'stopped'))
         if not enabled:
             print()
 
@@ -113,7 +113,7 @@ class MyManagerListener(ManagerListener):
     # @param node    New node discovered.
     #
     def on_node_discovered(self, manager, node):
-        print('New device discovered: %s.' % (node.get_name()))
+        print('#New device discovered: %s.' % (node.get_name()))
 
 
 #
@@ -128,7 +128,7 @@ class MyNodeListener(NodeListener):
     # @param node Node that has connected to a host.
     #
     def on_connect(self, node):
-        print('Device %s connected.' % (node.get_name()))
+        print('#Device %s connected.' % (node.get_name()))
 
     #
     # To be called whenever a node disconnects from a host.
@@ -138,7 +138,7 @@ class MyNodeListener(NodeListener):
     #                   (called by the user).
     #
     def on_disconnect(self, node, unexpected=False):
-        print('Device %s disconnected%s.' % \
+        print('#Device %s disconnected%s.' % \
             (node.get_name(), ' unexpectedly' if unexpected else ''))
         if unexpected:
             # Exiting.
@@ -300,15 +300,15 @@ def main(argv):
 #                    device.disable_notifications(audio_feature)
 #                    audio_feature.remove_listener(audio_feature_listener)
 
-                print('\nDisconnecting from %s...' % (device.get_name()))
+                print('\n#Disconnecting from %s...' % (device.get_name()))
                 if not device.disconnect():
-                    print('Disconnection failed.\n')
+                    print('#Disconnection failed.\n')
                     continue
                 device.remove_listener(node_listener)
                 # Resetting discovery.
                 manager.reset_discovery()
                 manager.remove_listener(manager_listener)
-                print('Exiting...\n')
+                print('#Exiting...\n')
                 sys.exit(0)
 
     except KeyboardInterrupt:
