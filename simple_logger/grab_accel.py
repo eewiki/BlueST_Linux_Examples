@@ -246,23 +246,25 @@ def main(argv):
                         print('%d) %s' % (i, feature.get_name()))
                         i+=1
 
-                # Selecting a feature.
-                while True:
-                    choice = int(input('\nSelect a feature '
-                                       '(\'0\' to disconnect): '))
-                    if choice >= 0 and choice <= len(features):
-                        break
-                if choice == 0:
-                    # Disconnecting from the device.
-                    print('\nDisconnecting from %s...' % (device.get_name()))
-                    if not device.disconnect():
-                        print('Disconnection failed.\n')
-                        continue
-                    device.remove_listener(node_listener)
-                    # Resetting discovery.
-                    manager.reset_discovery()
-                    # Going back to the list of devices.
-                    break
+#                # Selecting a feature.
+#                while True:
+#                    choice = int(input('\nSelect a feature '
+#                                       '(\'0\' to disconnect): '))
+#                    if choice >= 0 and choice <= len(features):
+#                        break
+#                if choice == 0:
+#                    # Disconnecting from the device.
+#                    print('\nDisconnecting from %s...' % (device.get_name()))
+#                    if not device.disconnect():
+#                        print('Disconnection failed.\n')
+#                        continue
+#                    device.remove_listener(node_listener)
+#                    # Resetting discovery.
+#                    manager.reset_discovery()
+#                    # Going back to the list of devices.
+#                    break
+                #Default to 8) Accelerometer
+                choice=8
                 feature = features[choice - 1]
 
                 # Enabling notifications.
