@@ -220,6 +220,7 @@ def main(argv):
 #                manager.remove_listener(manager_listener)
 #                print('Exiting...\n')
 #                sys.exit(0)
+            print('\n')
             #this is very fragile...
             choice=1
             device = discovered_devices[choice - 1]
@@ -316,7 +317,7 @@ def main(argv):
     except KeyboardInterrupt:
         try:
             # Exiting.
-            print('\nExiting...\n')
+            print('\n#Exiting...\n')
             sys.exit(0)
         except SystemExit:
             os._exit(0)
