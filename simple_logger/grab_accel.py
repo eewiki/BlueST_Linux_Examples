@@ -298,6 +298,9 @@ def main(argv):
 #                    device.disable_notifications(audio_feature)
 #                    audio_feature.remove_listener(audio_feature_listener)
 
+                print('\nExiting...\n')
+                sys.exit(0)
+
     except KeyboardInterrupt:
         try:
             # Exiting.
