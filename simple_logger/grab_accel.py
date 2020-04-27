@@ -270,15 +270,15 @@ def main(argv):
                 feature.add_listener(feature_listener)
                 device.enable_notifications(feature)
 
-                # Handling audio case (both audio features have to be enabled).
-                if isinstance(feature, FeatureAudioADPCM):
-                    audio_sync_feature_listener = MyFeatureListener()
-                    audio_sync_feature.add_listener(audio_sync_feature_listener)
-                    device.enable_notifications(audio_sync_feature)
-                elif isinstance(feature, FeatureAudioADPCMSync):
-                    audio_feature_listener = MyFeatureListener()
-                    audio_feature.add_listener(audio_feature_listener)
-                    device.enable_notifications(audio_feature)
+#                # Handling audio case (both audio features have to be enabled).
+#                if isinstance(feature, FeatureAudioADPCM):
+#                    audio_sync_feature_listener = MyFeatureListener()
+#                    audio_sync_feature.add_listener(audio_sync_feature_listener)
+#                    device.enable_notifications(audio_sync_feature)
+#                elif isinstance(feature, FeatureAudioADPCMSync):
+#                    audio_feature_listener = MyFeatureListener()
+#                    audio_feature.add_listener(audio_feature_listener)
+#                    device.enable_notifications(audio_feature)
 
                 # Getting notifications.
                 notifications = 0
@@ -290,13 +290,13 @@ def main(argv):
                 device.disable_notifications(feature)
                 feature.remove_listener(feature_listener)
                 
-                # Handling audio case (both audio features have to be disabled).
-                if isinstance(feature, FeatureAudioADPCM):
-                    device.disable_notifications(audio_sync_feature)
-                    audio_sync_feature.remove_listener(audio_sync_feature_listener)
-                elif isinstance(feature, FeatureAudioADPCMSync):
-                    device.disable_notifications(audio_feature)
-                    audio_feature.remove_listener(audio_feature_listener)
+#                # Handling audio case (both audio features have to be disabled).
+#                if isinstance(feature, FeatureAudioADPCM):
+#                    device.disable_notifications(audio_sync_feature)
+#                    audio_sync_feature.remove_listener(audio_sync_feature_listener)
+#                elif isinstance(feature, FeatureAudioADPCMSync):
+#                    device.disable_notifications(audio_feature)
+#                    audio_feature.remove_listener(audio_feature_listener)
 
     except KeyboardInterrupt:
         try:
