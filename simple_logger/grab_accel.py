@@ -220,7 +220,6 @@ def main(argv):
 #                manager.remove_listener(manager_listener)
 #                print('Exiting...\n')
 #                sys.exit(0)
-            print('\n')
             #this is very fragile...
             choice=1
             device = discovered_devices[choice - 1]
@@ -267,6 +266,7 @@ def main(argv):
 #                    # Going back to the list of devices.
 #                    break
                 #Default to 8) Accelerometer
+                print('\n')
                 choice=8
                 feature = features[choice - 1]
 
