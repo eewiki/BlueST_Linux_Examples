@@ -12,6 +12,9 @@ if ! id | grep -q root; then
 	exit
 fi
 
+/home/debian/tplink-smartplug/tplink_smartplug.py -t 192.168.3.223 -c on
+sleep 5
+
 while :
 do
 	date_stamp=$(date +%Y.%m.%d.%H.%M.%S)
