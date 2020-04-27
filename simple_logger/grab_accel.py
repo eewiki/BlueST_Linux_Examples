@@ -175,7 +175,7 @@ class MyFeatureListener(FeatureListener):
 def main(argv):
 
     # Printing intro.
-    print_intro()
+    #print_intro()
 
     try:
         # Creating Bluetooth Manager.
