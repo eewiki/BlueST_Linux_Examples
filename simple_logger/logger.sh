@@ -5,5 +5,11 @@ if ! id | grep -q root; then
 	exit
 fi
 
-python3 grab_accel.py >> /var/www/html/accel-$(date +%Y.%m.%d.%H.%M.%S).log
+while :
+do
+	date_stamp=$(date +%Y.%m.%d.%H.%M.%S)
+	python3 grab_accel.py >> /var/www/html/accel-${date_stamp}.log
+	cat /var/www/html/accel-${date_stamp}.log | grep "^#Device BAI_400 disconnected unexpectedly." && exit
+	sleep 1
+done
 
