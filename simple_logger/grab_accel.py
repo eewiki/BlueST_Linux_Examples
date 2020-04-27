@@ -76,7 +76,7 @@ INTRO = """##################
 SCANNING_TIME_s = 1
 
 # Number of notifications to get before disabling them.
-NOTIFICATIONS = 1200
+NOTIFICATIONS = 2400
 
 
 # FUNCTIONS

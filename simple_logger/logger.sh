@@ -2,9 +2,9 @@
 
 toggle () {
 	/home/debian/tplink-smartplug/tplink_smartplug.py -t 192.168.3.223 -c off
-	sleep 2
+	sleep 5
 	/home/debian/tplink-smartplug/tplink_smartplug.py -t 192.168.3.223 -c on
-	sleep 3
+	sleep 5
 }
 
 if ! id | grep -q root; then
